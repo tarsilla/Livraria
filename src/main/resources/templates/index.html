@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+</head>
+<body>
+	 <form class="form-control-lg" method="post" th:action="@{/administrador/login}">
+         <label class="form-check-label">Usuario: </label>
+         <br/>
+         <input class="form-input" name="nome" id="nome">
+         <br />
+         <label class="form-check-label">Senha: </label>
+         <input id="senha" type="password" name="senha" class="form-input">
+         <button type="submit" class="btn btn-success">Entrar</button>
+         <a href="#">Mudar Senha ?</a><br />
+         <a href="#">Esqueceu Senha ?</a>
+         <br />
+     </form>
+</body>
+</html>
