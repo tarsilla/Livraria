@@ -13,13 +13,13 @@ public class AdminController {
 	@PostMapping("/login")
 	public ModelAndView login(String nome,String senha) {
 		if(nome.equals("admin") && senha.equals("123")) {
-			return admin();
+			return home();
 		}
 		return new IndexController().index();
 	}
 	
-	@GetMapping("/home-admin")
-	public ModelAndView admin() {
-		return new ModelAndView("admnistrador/home-admin");
+	@GetMapping("/home")
+	public ModelAndView home() {
+		return new ModelAndView("administrador/home");
 	}
 }
