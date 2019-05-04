@@ -18,8 +18,8 @@ public class AdminController {
 		return new IndexController().index();
 	}
 	
-	@GetMapping("/home")
+	@GetMapping("/home-admin")
 	public ModelAndView home() {
-		return new ModelAndView("administrador/home");
+		return new ModelAndView("administrador/home-admin");
 	}
 }
