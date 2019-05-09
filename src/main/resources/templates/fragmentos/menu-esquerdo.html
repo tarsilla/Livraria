@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<meta charset="ISO-8859-1">
 </head>
 <body>
-	<div id="wrapper">
-		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-			<a class="sidebar-brand d-flex align-items-center justify-content-center">
-				<div class="sidebar-brand-icon rotate-n-15">
-					<i class="fas fa-laugh-wink"></i>
-				</div>
-				<div class="sidebar-brand-text mx-3">
-					SB Admin <sup>2</sup>
-				</div>
-			</a>
-
-			<hr class="sidebar-divider my-0">
-
-			<li class="nav-item">
-				<a class="nav-link" href="index.html">
-					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
-				</a>
-			</li>
-
-			<hr class="sidebar-divider">
-
-			<div class="sidebar-heading">Interface</div>
-
-			<hr class="sidebar-divider">
-
-			<hr class="sidebar-divider d-none d-md-block">
-
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
-
-		</ul>
-	</div>
+	<div th:fragment="menu-esquerdo" >
+	    <div class="sidebar" data-color="white" data-active-color="danger">
+	    
+	      <div class="logo">
+	        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+	          <div class="logo-image-small">
+	            <img src="../imgs/livro.png">
+	          </div>
+	        </a>
+	        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+	          Biblioteca
+	        </a>
+	      </div>
+	      
+	      <div class="sidebar-wrapper">
+	        <ul class="nav">
+	          <li class="active ">
+	            <a href="./dashboard.html">
+	              <i class="nc-icon nc-bank"></i>
+	              <p>Dashboard</p>
+	            </a>
+	          </li>
+	          <li class="active ">
+	            <a href="./dashboard.html">
+	              <i class="nc-icon nc-bank"></i>
+	              <p>Dashboard</p>
+	            </a>
+	          </li>
+	        </ul>
+	      </div>
+	      
+	    </div>
+    </div>
 </body>
 </html>
