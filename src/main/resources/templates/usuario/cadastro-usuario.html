@@ -2,7 +2,7 @@
 <html xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
         layout:decorate="~{layout}">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Cadastro de Usuarios</title>
 </head>
 <body>
@@ -14,18 +14,51 @@
               	</div>
 	            <div class="card-body">
 	            
-	            	<form th:object="${usuario}" th:action="@{/usuario/saveUsuario}" id="form" method="POST">
-                        <input id="id_Usuario" name="id_Usuario" type="hidden" th:field="*{id_Usuario}" th:value="*{id_Usuario}">
-                        <div class="row">
+	            	<form >
                         
+                        <div class="row">                   
                         	<div class="col-md-5">
 	                 			<div class="form-group">
 	                        		<label>Nome</label>
-	                        		<input type="text" class="form-control" placeholder="fulano da silva" id="nome" th:field="*{nome}">
+	                        		<input type="text" class="form-control" placeholder="fulano da silva">
 	                      		</div>
 	                 		</div> 
-	                 		
-                        </div>                   
+	                 		<div class="col-md-5">
+	                 			<div class="form-group">
+	                        		<label>Email</label>
+	                        		<input type="text" class="form-control" placeholder="fulano@gmail.com">
+	                      		</div>
+	                 		</div>
+	                 		<div class="col-md-5">
+	                 			<div class="form-group">
+	                        		<label>Rua</label>
+	                        		<input type="text" class="form-control" placeholder="Oscar tertulino de Oliveira">
+	                      		</div>
+	                 		</div>
+	                 		<div class="col-md-5">
+	                 			<div class="form-group">
+	                        		<label>Bairro</label>
+	                        		<input type="text" class="form-control" placeholder="são jose">
+	                      		</div>
+	                 		</div>
+	                 		<div class="col-md-5">
+	                 			<div class="form-group">
+	                        		<label>Senha</label>
+	                        		<input type="text" class="form-control" placeholder="*******">
+	                      		</div>
+	                 		</div> 
+	                 		<div class="col-md-5">
+	                 			<div class="form-group">
+	                        		<label>Confirmar Senha</label>
+	                        		<input type="text" class="form-control" placeholder="*******">
+	                      		</div>
+	                 		</div> 
+                        </div>
+                        <div class="btn-toolbar" role="toolbar">
+  							<div class="btn-group mr-2" role="group">
+    							<button type="submit" class="btn btn-primary btn-round">Salvar</button>
+  							</div>
+                  		</div>                    
                     </form>
                     
 	            </div>
