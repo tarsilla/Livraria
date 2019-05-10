@@ -42,7 +42,4 @@ public class Usuario implements Serializable{
 	@Column(nullable = false,length = 50)
 	@NotBlank(message = "Informação Obrigatoria")
 	private String bairro;
-	
-	@OneToMany
-	private List<Pedido> pedidos = new ArrayList<Pedido>();
 }

@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -28,6 +29,4 @@ public class Categoria implements Serializable{
 	@NotBlank(message="Informação obrigatoria")
 	private String nome;
 	
-	@ManyToMany(mappedBy = "ctegorias")
-	private List<Livro> livros = new ArrayList<Livro>();
 }

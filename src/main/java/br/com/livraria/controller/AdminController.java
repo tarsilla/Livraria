@@ -22,4 +22,5 @@ public class AdminController {
 	public ModelAndView admin() {
 		return new ModelAndView("administrador/home-admin");
 	}
+
 }

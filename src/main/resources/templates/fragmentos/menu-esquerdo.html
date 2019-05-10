@@ -1,40 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
+	<meta charset="UTF-8">
 </head>
 <body>
 	<div th:fragment="menu-esquerdo" >
 	    <div class="sidebar" data-color="white" data-active-color="danger">
 	    
 	      <div class="logo">
-	        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+	        <a th:href="@{/administrador/home-admin}" class="simple-text logo-mini">
 	          <div class="logo-image-small">
 	            <img src="../imgs/livro.png">
 	          </div>
 	        </a>
-	        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-	          Biblioteca
+	        <a th:href="@{/administrador/home-admin}" class="simple-text logo-normal">
+	          Livraria Céu Azul
 	        </a>
 	      </div>
 	      
-	      <div class="sidebar-wrapper">
+	      <div class="sidebar-wrapper" >
 	        <ul class="nav">
 	          <li class="active ">
-	            <a href="./dashboard.html">
+	            <a th:href="@{/usuario/perfil-usuario}">
 	              <i class="nc-icon nc-bank"></i>
-	              <p>Dashboard</p>
+	              <p>Perfil</p>
+	            </a>
+	          </li>  
+	          <li class="active">
+	            <a th:href="@{/usuario/cadastro-usuario}">
+	              <i class="nc-icon nc-bank"></i>
+	              Cadastro usuario
+	            </a>
+	          </li>
+	          <li class="active">
+	            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	              <i class="nc-icon nc-bank"></i>
+	              Cadastro autor
 	            </a>
 	          </li>
 	          <li class="active ">
-	            <a href="./dashboard.html">
+	            <a href="./dashboard.html">				
 	              <i class="nc-icon nc-bank"></i>
-	              <p>Dashboard</p>
+	              <p>Lista</p>
+	            </a>
+	          </li>
+	          <li class="active ">
+	            <a href="./dashboard.html">				
+	              <i class="nc-icon nc-bank"></i>
+	              <p>Pedidos</p>
+	            </a>
+	          </li>
+	          <li class="active ">
+	            <a th:href="@{/}">				
+	              <i class="nc-icon nc-bank"></i>
+	              <p>Sair</p>
 	            </a>
 	          </li>
 	        </ul>
 	      </div>
-	      
+	           
 	    </div>
     </div>
 </body>

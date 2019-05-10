@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -34,8 +35,4 @@ public class Autor implements Serializable{
 	
 	@NotBlank(message="Informação obrigatoria")
 	private int cpf;
-	
-	@ManyToMany
-	@JoinTable(name="livros-autor")
-	private List<Livro> livros = new ArrayList<Livro>();
 }

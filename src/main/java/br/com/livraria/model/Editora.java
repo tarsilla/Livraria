@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -29,8 +30,4 @@ public class Editora implements Serializable{
 	@Column(nullable=false, length=50)
 	@NotBlank(message="Informação obrigatoria")
 	private String cidade;
-	
-	@ManyToOne
-	@JoinColumn(name="id-livro")
-	private Livro livro;
 }

@@ -51,12 +51,5 @@ public class Frete implements Serializable{
 	
 	@NotBlank(message = "Informação Obrigatoria")
 	private String bairro;
-	
-	@OneToOne
-	@JoinColumn(name = "id-municipio")
-	private Municipio municipio;
-	
-	@OneToMany(mappedBy = "fretes")
-	private List<Pedido> pedidos;
 
 }

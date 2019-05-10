@@ -49,4 +49,9 @@ public class UsuarioController {
 		service.delete(id);
 		return findAll();
 	}
+	
+	@GetMapping("/perfil-usuario")
+	public ModelAndView admin() {
+		return new ModelAndView("usuario/perfil-usuario");
+	}
 }
