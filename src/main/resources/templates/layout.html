@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<html>
 <head>
 	<meta charset="UTF-8">  	
 	<title>Livraria - Home</title>
-	
 	<link rel="icon" type="imagem/png" href="/imgs/livro.png" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/paper-dashboard.css}"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/demo.css}"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/demo.css}"/>	
 </head>
-<body>
-	<div class="wrapper ">
+<body class="">
+	<div class="wrapper">
 	
 		<div th:replace="fragmentos/menu-esquerdo :: menu-esquerdo"></div>
 		
@@ -30,9 +28,7 @@
 	
 	<script th:src="@{/js/bootstrap.min.js}"></script>
 	<script th:src="@{/js/jquery.min.js}"></script>
-	<script th:src="@{/js/popper.min.js}"></script>
-	<script th:src="@{/js/perfect-scrollbar.jquery.min.js}"></script>
-	<script th:src="@{/js/paper-dashboard.min.js}"></script>
 	<script th:src="@{/js/demo.js}"></script>
+
 </body>
 </html>
