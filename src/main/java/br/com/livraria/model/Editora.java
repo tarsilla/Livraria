@@ -8,8 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+
 
 @Entity
 public class Editora implements Serializable{
@@ -30,4 +30,40 @@ public class Editora implements Serializable{
 	@Column(nullable=false, length=50)
 	@NotBlank(message="Informação obrigatoria")
 	private String cidade;
+	
+	@ManyToOne
+	@JoinColumn(name="id-livro")
+	private Livro livro;
+
+	public Long getId_Editora() {
+		return id_Editora;
+	}
+
+	public void setId_Editora(Long id_Editora) {
+		this.id_Editora = id_Editora;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
 }

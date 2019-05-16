@@ -32,4 +32,17 @@ public class Pedido implements Serializable{
 	@NotBlank(message="Informação obrigatoria")
 	private double valorTotal;
 	
+	@ManyToMany
+	@JoinTable(name="pedidos-livros")
+	private List<Livro> livros = new ArrayList<Livro>();
+	
+	@ManyToOne
+	@JoinColumn(name="id-usuario")
+	private Usuario usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="id-frete")
+	private Frete frete;
+	
+	
 }
