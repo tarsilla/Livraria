@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{layout}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista de Autores</title>
+</head>
+<body>
+	<div id="content" layout:fragment="corpo">
+		<div class="col-md-12">
+			<div class="card card-user">
+				<div class="card-header">
+					<h5 class="card-title">Autores</h5>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Nome</th>
+									<th>Email</th>
+									<th>Cpf</th>
+									<th>Livros</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="autor : ${autores}">
+									<td th:text="${autor.nome}"></td>
+									<td th:text="${autor.email}"></td>
+									<td th:text="${autor.cpf}"></td>
+									<th:block th:each="livro : ${autor.livros}">
+										<td th:text="${livro.titulo}">
+									</th:block>
+									<td>
+										<div class="btn-group pull-right">
+											<a class="btn btn-sm btn-success"
+												th:href="">Editar</a>
+											<a class="delete btn btn-sm btn-danger"
+												th:href="">Arquivar</a>
+										</div>
+									</td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<button class="btn btn-primary btn-round" th:href="@{/autor/cadastro-autor}">Novo Autor</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

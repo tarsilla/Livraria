@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+        layout:decorate="~{layout}">
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div th:fragment="menu-esquerdo" >
+	    <div class="sidebar" data-color="white" data-active-color="black">
+	    
+	      <div class="logo">
+	        <a th:href="@{/administrador/home-admin}" class="simple-text logo-mini">
+	          <div class="logo-image-small">
+	            <img src="../imgs/livro.png">
+	          </div>
+	        </a>
+	        <a th:href="@{/administrador/home-admin}" class="simple-text logo-normal">
+	          Livraria Céu Azul
+	        </a>
+	      </div>
+	      
+	      <div class="sidebar-wrapper" >
+	        <ul class="nav">
+	          <li>
+	            <a th:href="@{/administrador/home-admin}">
+	              <i class="nc-icon nc-bank"></i>
+	              <p>Home</p>
+	            </a>
+	          </li>
+	          <li>
+	            <a th:href="@{/usuario/perfil-usuario}">
+	              <i class="nc-icon nc-circle-10"></i>
+	              <p>Perfil</p>
+	            </a>
+	          </li>  
+	          <li class="dropdown">
+	            <a  data-toggle="dropdown">
+	              <i class="nc-icon nc-bullet-list-67"></i>
+	              <p>Cadastros <span class="nc-icon nc-minimal-down"></span> </p>
+	            </a>
+	            <ul class="dropdown-menu dropdown-menu-right">
+			        <li><a th:href="@{/usuario/cadastro-usuario}"><i class="nc-icon nc-circle-10"></i>Usuario</a></li> 
+			        <li><a th:href="@{/autor/cadastro-autor}"><i class="nc-icon nc-single-02"></i>Autor</a></li> 
+			        <li><a th:href="@{/editora/cadastro-editora}"><i class="nc-icon nc-bookmark-2"></i>Editora</a></li> 
+			        <li><a th:href="@{/livro/cadastro-livro}"><i class="nc-icon nc-book-bookmark"></i>Livro</a></li>
+			        <li><a th:href="@{/categoria/cadastro-categoria}"><i class="nc-icon nc-tag-content"></i>Categoria</a></li> 
+		      	</ul>
+	          </li>
+	          <li class="dropdown">
+	            <a  data-toggle="dropdown">
+	              <i class="nc-icon nc-tile-56"></i>
+	              <p>Listas <span class="nc-icon nc-minimal-down"></span> </p>
+	            </a>
+	            <ul class="dropdown-menu dropdown-menu-right">
+			        <li><a th:href="@{/usuario/cadastro-usuario}"><i class="nc-icon nc-circle-10"></i>Usuarios</a></li> 
+			        <li><a th:href="@{/autor/lista-autor}"><i class="nc-icon nc-single-02"></i>Autores</a></li> 
+			        <li><a th:href="@{/editora/cadastro-editora}"><i class="nc-icon nc-bookmark-2"></i>Editoras</a></li> 
+			        <li><a th:href="@{/livro/lista-livro}"><i class="nc-icon nc-book-bookmark"></i>Livros</a></li>
+			        <li><a th:href="@{/categoria/cadastro-categoria}"><i class="nc-icon nc-tag-content"></i>Categorias</a></li> 
+		      	</ul>
+	          </li>
+	          <li>
+	            <a href="./dashboard.html">				
+	              <i class="nc-icon nc-bank"></i>
+	              <p>Pedidos</p>
+	            </a>
+	          </li>
+	          <li>
+	            <a th:href="@{/}">				
+	              <i class="nc-icon nc-button-power"></i>
+	              <p>Sair</p>
+	            </a>
+	          </li>
+	        </ul>
+	      </div>
+	           
+	    </div>
+    </div>
+</body>
+</html>
