@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+        layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Usuarios</title>
+</head>
+<body>
+	<div id="content" layout:fragment="corpo">
+		<div class="col-md-12">
+            <div class="card card-user">
+             	<div class="card-header">
+                	<h5 class="card-title">Cadastro Usuario</h5>
+              	</div>
+	            <div class="card-body">
+	            	<p class="card-category">campos obrigatorios <span style="color: red">*</span></p>
+	            	<form th:object="${usuario}" th:action="@{/usuario/saveUsuario}" method="POST">
+	            		<input id="id" name="id" type="hidden" th:field="*{id}" th:value="*{id}">
+	            		
+	            		<div class="form-group row">
+							<div class="alert alert-danger alert-dismissible fade show"
+								role="alert" th:if="${#fields.hasAnyErrors()}">
+
+								<button type="button" class="close" data-dismiss="alert"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+
+								<div th:each="detailedError : ${#fields.detailedErrors()}">
+									<strong th:text="${detailedError.message}"> </strong>
+								</div>
+							</div>
+						</div>
+                   
+                        <div class="row">                   
+                        	<div class="col-md-5">
+	                 			<div class="form-group">
+	                        		<label>Nome<span style="color: red">*</span></label>
+	                        		<input type="text" id="nome" th:field="*{nome}" class="form-control" placeholder="fulano da silva">
+	                      		</div>
+	                 		</div> 
+	                 		<div class="col-md-5">
+	                 			<div class="form-group">
+	                        		<label>Email<span style="color: red">*</span></label>
+	                        		<input type="text" id="email" th:field="*{email}" class="form-control" placeholder="fulano@gmail.com">
+	                      		</div>
+	                 		</div>
+	                 		<div class="col-md-5">
+	                 			<div class="form-group">
+	                        		<label>Rua<span style="color: red">*</span></label>
+	                        		<input type="text" id="rua" th:field="*{rua}" class="form-control" placeholder="Oscar tertulino de Oliveira">
+	                      		</div>
+	                 		</div>
+	                 		<div class="col-md-5">
+	                 			<div class="form-group">
+	                        		<label>Bairro<span style="color: red">*</span></label>
+	                        		<input type="text" id="bairro" th:field="*{bairro}" class="form-control" placeholder="são jose">
+	                      		</div>
+	                 		</div>
+	                 		<div class="col-md-5">
+	                 			<div class="form-group">
+	                        		<label>Senha<span style="color: red">*</span></label>
+	                        		<input type="text" id="senha" th:field="*{senha}" class="form-control" placeholder="*******">
+	                      		</div>
+	                 		</div> 
+                        </div>
+                        <div class="btn-toolbar" role="toolbar">
+  							<div class="btn-group mr-2" role="group">
+    							<button type="submit" class="btn btn-primary btn-round">Salvar</button>
+  							</div>
+                  		</div>                    
+                    </form>
+                    
+	            </div>
+	        </div>
+	   </div>
+    </div>
+</body>
+</html>
