@@ -21,6 +21,16 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService service;
 	
+	@GetMapping("/login")
+	public ModelAndView login() {
+		return new ModelAndView("usuario/login");	
+	}
+	
+	@GetMapping("/esqueceuSenha")
+	public ModelAndView esqueceuSenha() {
+		return new ModelAndView("usuario/esqueceuSenha");	
+	}
+	
 	@PostMapping("/saveUsuario")
 	public ModelAndView saveUsuario(@Valid Usuario usuario,BindingResult result) {
 		if(result.hasErrors()) {

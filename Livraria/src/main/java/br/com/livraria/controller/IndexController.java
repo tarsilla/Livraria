@@ -11,9 +11,4 @@ public class IndexController {
 	public ModelAndView index() {
 		return new ModelAndView("index");	
 	}
-	
-	@GetMapping("/esqueceu")
-	public ModelAndView esqueceuSenha() {
-		return new ModelAndView("esqueceuSenha");	
-	}
 }
