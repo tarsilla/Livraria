@@ -1,4 +1,4 @@
-package br.com.livraria.model;
+package br.com.livraria.enums;
 
 public enum StatusPedido {
 

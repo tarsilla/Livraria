@@ -23,11 +23,11 @@ public class Frete implements Serializable{
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	@Column(nullable = false,length = 10, name="valor")
 	@NotBlank(message="Valor é uma informação obrigatoria!")
-	private int valor;
+	private double valor;
 	
 	@NotBlank(message="Data é uma informação obrigatoria!")
 	@Column(name="dataEntregaCorreios")
@@ -35,7 +35,7 @@ public class Frete implements Serializable{
 	
 	@NotBlank(message="Data de Entrega é uma informação obrigatoria!")
 	@Column(name="dataEntregaCliente")
-	private Date dataEntregaCliente;
+	private String dataEntregaCliente;
 	
 	@Column(nullable = false,length = 10,name="peso")
 	private double peso;
@@ -56,6 +56,14 @@ public class Frete implements Serializable{
 	@Column(name="bairro")
 	private String bairro;
 	
+	public String getDataEntregaCliente() {
+		return dataEntregaCliente;
+	}
+
+	public void setDataEntregaCliente(String dataEntregaCliente) {
+		this.dataEntregaCliente = dataEntregaCliente;
+	}
+
 	@NotBlank(message="Total de Dias é uma informação obrigatoria!")
 	@Column(name="tempoDias")
 	private int tempoDias;
@@ -75,19 +83,20 @@ public class Frete implements Serializable{
 	@JoinColumn(name="pedido-id")
 	public Pedido pedido;
 
-	public int getId() {
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public int getValor() {
+	public double getValor() {
 		return valor;
 	}
 
-	public void setValor(int valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 
@@ -97,14 +106,6 @@ public class Frete implements Serializable{
 
 	public void setDataEntregaCorreios(Date dataEntregaCorreios) {
 		this.dataEntregaCorreios = dataEntregaCorreios;
-	}
-
-	public Date getDataEntregaCliente() {
-		return dataEntregaCliente;
-	}
-
-	public void setDataEntregaCliente(Date dataEntregaCliente) {
-		this.dataEntregaCliente = dataEntregaCliente;
 	}
 
 	public double getPeso() {
@@ -190,4 +191,7 @@ public class Frete implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	
+
 }

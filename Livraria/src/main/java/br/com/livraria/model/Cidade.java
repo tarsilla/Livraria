@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import br.com.livraria.enums.UnidadeF;
+
 @Entity
 @Table(name = "cidade")
 public class Cidade implements Serializable{

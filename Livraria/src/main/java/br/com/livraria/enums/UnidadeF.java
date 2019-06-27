@@ -1,4 +1,4 @@
-package br.com.livraria.model;
+package br.com.livraria.enums;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;

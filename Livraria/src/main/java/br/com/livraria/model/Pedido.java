@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import br.com.livraria.enums.StatusPedido;
+
 @Entity
 @Table(name = "pedido")
 public class Pedido implements Serializable{

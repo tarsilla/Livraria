@@ -50,12 +50,20 @@ public class Livro implements Serializable{
 	
 	@NotBlank(message="Preço é uma informação obrigatoria!")
 	@Column(name="preco")
-	private double preço;
+	private String preco;
 	
 	@NotBlank(message="Peso é uma informação obrigatoria!")
 	@Column(name="peso")
 	private double peso;
 	
+	public String getPreco() {
+		return preco;
+	}
+
+	public void setPreco(String preco) {
+		this.preco = preco;
+	}
+
 	@Lob
 	private byte [] foto;
 	
@@ -124,14 +132,6 @@ public class Livro implements Serializable{
 
 	public void setEdicao(int edicao) {
 		this.edicao = edicao;
-	}
-
-	public double getPreço() {
-		return preço;
-	}
-
-	public void setPreço(double preço) {
-		this.preço = preço;
 	}
 
 	public double getPeso() {

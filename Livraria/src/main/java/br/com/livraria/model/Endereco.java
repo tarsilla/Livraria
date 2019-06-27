@@ -41,6 +41,30 @@ public class Endereco implements Serializable{
 	@Column(name = "complemento")
 	@NotBlank(message="Complemento é uma informação obrigatoria!")
 	private String complemento;
+	
+	@Column(name = "cidade")
+	@NotBlank(message="Cidade é uma informação obrigatoria!")
+	private String cidade;
+	
+	@Column(name = "unidadeF")
+	@NotBlank(message="Unidade Federativa é uma informação obrigatoria!")
+	private String unidadeF;
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getUnidadeF() {
+		return unidadeF;
+	}
+
+	public void setUnidadeF(String unidadeF) {
+		this.unidadeF = unidadeF;
+	}
 
 	public Long getId() {
 		return id;
