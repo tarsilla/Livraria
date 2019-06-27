@@ -6,11 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "endereco")
@@ -30,31 +27,35 @@ public class Endereco implements Serializable{
 	private String cep;
 	
 	@Column(name = "rua", length = 100)
+	@NotBlank(message="Rua é uma informação obrigatoria!")
 	private String rua;
 
 	@Column(name = "bairro", length = 45)
+	@NotBlank(message="Bairro é uma informação obrigatoria!")
 	private String bairro;
 
 	@Column(name = "numero")
+	@NotBlank(message="Numero é uma informação obrigatoria!")
 	private int numero;
 	
-	@OneToOne
-	@JoinColumn(name = "id-estado")
-	private Estado estado;
+	@Column(name = "complemento")
+	@NotBlank(message="Complemento é uma informação obrigatoria!")
+	private String complemento;
 
-	@OneToOne
-	@JoinColumn(name = "Cidade_id")
-	private Municipio municipio;
-	
-	public Endereco(Long id, @NotNull String rua, @NotNull String bairro, @NotNull int numero, Estado estado,
-			Municipio municipio) {
-		super();
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
 		this.id = id;
-		this.rua = rua;
-		this.bairro = bairro;
-		this.numero = numero;
-		this.estado = estado;
-		this.municipio = municipio;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
 
 	public String getRua() {
@@ -81,50 +82,16 @@ public class Endereco implements Serializable{
 		this.numero = numero;
 	}
 
-	public Estado getEstado() {
-		return estado;
+	public String getComplemento() {
+		return complemento;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
-
-	public Municipio getMunicipio() {
-		return municipio;
-	}
-
-	public void setMunicipio(Municipio municipio) {
-		this.municipio = municipio;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	public String getShortEndereco() {
-		return "" + getNumero() + " " + getRua() + "," + getBairro() + "," + getMunicipio().getNome() + ","
-				+ getEstado().getUf();
-	}
-	
-	@Override
-	public String toString() {
-		return "" + getNumero() + " " + getRua() + "," + getBairro() + "," + getMunicipio().getNome() + ","
-				+ getEstado().getUf();
-	}
+
 }

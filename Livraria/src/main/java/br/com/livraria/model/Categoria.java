@@ -1,7 +1,6 @@
 package br.com.livraria.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -32,7 +31,7 @@ public class Categoria implements Serializable{
 	private String nome;
 	
 	@ManyToMany(mappedBy="categorias")
-	private List<Livro> livros = new ArrayList<Livro>();
+	private List<Livro> livros;
 
 	public Long getId() {
 		return id;
@@ -61,4 +60,6 @@ public class Categoria implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	
 }

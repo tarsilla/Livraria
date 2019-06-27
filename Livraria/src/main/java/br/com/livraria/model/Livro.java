@@ -1,7 +1,6 @@
 package br.com.livraria.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -53,22 +52,31 @@ public class Livro implements Serializable{
 	@Column(name="preco")
 	private double preço;
 	
+	@NotBlank(message="Peso é uma informação obrigatoria!")
+	@Column(name="peso")
+	private double peso;
+	
 	@Lob
 	private byte [] foto;
 	
-	@ManyToMany(mappedBy="livros")	 
-	private List<Autor> autores = new ArrayList<Autor>();
-	
-	@ManyToMany(mappedBy="livros")
-	private List<Pedido> pedidos = new ArrayList<Pedido>();
-	
 	@ManyToMany
-	@JoinTable(name="livros-categoria")
-	private List<Categoria> categorias = new ArrayList<Categoria>();
+	@JoinTable(name = "livro-autor")
+	private List<Autor> autores;
 	
 	@ManyToOne
-	@JoinColumn(name="id-editora")	
+	@JoinColumn(name = "pedido-id")
+	private Pedido pedido;
+	
+	@ManyToOne
+	@JoinColumn(name = "categoria-id")
+	private Categoria categoria;
+	
+	@ManyToOne
+	@JoinColumn(name="editora-id")	
 	private Editora editora;
+	
+	@ManyToMany(mappedBy="livros")
+	public List<ItemPedido> itemPedido;
 
 	public int getId() {
 		return id;
@@ -126,6 +134,14 @@ public class Livro implements Serializable{
 		this.preço = preço;
 	}
 
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
 	public byte[] getFoto() {
 		return foto;
 	}
@@ -142,20 +158,20 @@ public class Livro implements Serializable{
 		this.autores = autores;
 	}
 
-	public List<Pedido> getPedidos() {
-		return pedidos;
+	public Pedido getPedido() {
+		return pedido;
 	}
 
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 
-	public List<Categoria> getCategorias() {
-		return categorias;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setCategorias(List<Categoria> categorias) {
-		this.categorias = categorias;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	public Editora getEditora() {
@@ -166,8 +182,17 @@ public class Livro implements Serializable{
 		this.editora = editora;
 	}
 
+	public List<ItemPedido> getItemPedido() {
+		return itemPedido;
+	}
+
+	public void setItemPedido(List<ItemPedido> itemPedido) {
+		this.itemPedido = itemPedido;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 	
 }

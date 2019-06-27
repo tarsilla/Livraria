@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import br.com.livraria.model.Frete;
+import br.com.livraria.model.Pedido;
 import br.com.livraria.repository.FreteRepository;
 
 @Service
@@ -17,8 +18,8 @@ public class FreteService {
 		return repository.findAll();
 	}
 	
-	public void save(Frete frete) {
-		repository.saveAndFlush(frete);
+	public Frete save(Frete frete) {
+		return repository.saveAndFlush(frete);
 	}
 	
 	public void update (Long id) {
@@ -31,5 +32,10 @@ public class FreteService {
 	
 	public Frete findOne(Long id) {
 		return repository.getOne(id);
+	}
+	
+
+	public Frete findByPedido(Pedido pedido) {
+		return repository.findByPedido(pedido);
 	}
 }

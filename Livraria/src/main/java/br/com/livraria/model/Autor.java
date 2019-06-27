@@ -1,7 +1,6 @@
 package br.com.livraria.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -39,8 +38,8 @@ public class Autor implements Serializable{
 	private int cpf;
 	
 	@ManyToMany
-	@JoinTable(name="livro-autor")
-	private List<Livro> livros = new ArrayList<Livro>();
+	@JoinTable(name="autores")
+	private List<Livro> livros;
 
 	public int getId() {
 		return id;

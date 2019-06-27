@@ -18,9 +18,13 @@ public class CategoriaService {
 		return repository.findAll();
 	}
 	
-	public void save(Categoria categoria) {
+	public void cadastrar(Categoria categoria) {
 		repository.saveAndFlush(categoria);
 	}
+	
+	public Categoria save(Categoria categoria) {
+        return repository.saveAndFlush(categoria);
+    }
 	
 	public void update (Long id) {
 		// TODO Auto-generated method stub

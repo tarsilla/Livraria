@@ -2,14 +2,12 @@ package br.com.livraria.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -58,12 +56,24 @@ public class Frete implements Serializable{
 	@Column(name="bairro")
 	private String bairro;
 	
-	@OneToOne
-	@JoinColumn(name="id-endereco")
-	private Endereco endereco;
+	@NotBlank(message="Total de Dias é uma informação obrigatoria!")
+	@Column(name="tempoDias")
+	private int tempoDias;
 	
-	@OneToMany(mappedBy="frete")
-	private List<Pedido> pedidos;
+	@NotBlank(message="Cidade é uma informação obrigatoria!")
+	@Column(name="cidade")
+	private String cidade;
+	
+	@NotBlank(message="Unidade Federativa é uma informação obrigatoria!")
+	@Column(name="unidadeF")
+	private String unidadeF;
+	
+	@OneToOne(mappedBy = "itemPedidos")
+	public ItemPedido itemPedido;
+	
+	@OneToOne
+	@JoinColumn(name="pedido-id")
+	public Pedido pedido;
 
 	public int getId() {
 		return id;
@@ -137,20 +147,44 @@ public class Frete implements Serializable{
 		this.bairro = bairro;
 	}
 
-	//public Endereco getEndereco() {
-	//	return endereco;
-	//}
-
-	//public void setEndereco(Endereco endereco) {
-	//	this.endereco = endereco;
-	//}
-
-	public List<Pedido> getPedidos() {
-		return pedidos;
+	public int getTempoDias() {
+		return tempoDias;
 	}
 
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
+	public void setTempoDias(int tempoDias) {
+		this.tempoDias = tempoDias;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getUnidadeF() {
+		return unidadeF;
+	}
+
+	public void setUnidadeF(String unidadeF) {
+		this.unidadeF = unidadeF;
+	}
+
+	public ItemPedido getItemPedido() {
+		return itemPedido;
+	}
+
+	public void setItemPedido(ItemPedido itemPedido) {
+		this.itemPedido = itemPedido;
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
 	}
 
 	public static long getSerialversionuid() {

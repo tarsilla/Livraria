@@ -18,7 +18,11 @@ public class EditoraService {
 		return repository.findAll();
 	}
 	
-	public void save(Editora editora) {
+	public Editora save(Editora editora) {
+        return repository.saveAndFlush(editora);
+    }
+	
+	public void cadastrar(Editora editora) {
 		repository.saveAndFlush(editora);
 	}
 	

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.livraria.model.Pedido;
+import br.com.livraria.model.Usuario;
 import br.com.livraria.repository.PedidoRepository;
 
 @Service
@@ -18,8 +19,12 @@ public class PedidoService {
 		return repository.findAll();
 	}
 	
-	public void save(Pedido pedido) {
-		repository.saveAndFlush(pedido);
+	public Pedido save(Pedido pedido) {
+		return repository.saveAndFlush(pedido);
+	}
+	
+	public List<Pedido> findByUsuario(Usuario usuario) {
+		return repository.findByUsuario(usuario);
 	}
 	
 	public void update (Long id) {

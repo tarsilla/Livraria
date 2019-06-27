@@ -1,7 +1,6 @@
 package br.com.livraria.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,9 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -29,6 +27,10 @@ public class Pedido implements Serializable{
 	@GeneratedValue
 	private Long id;
 	
+	@NotBlank(message="Quantidade é uma informação obrigatoria!")
+	@Column(name="quantidade")
+	private int quantidade;
+	
 	@NotBlank(message="Data é uma informação obrigatoria!")
 	@Column(name="data")
 	private Date data;
@@ -37,17 +39,15 @@ public class Pedido implements Serializable{
 	@Column(name="valorTotal")
 	private double valorTotal;
 	
-	@ManyToMany
-	@JoinTable(name="pedidos-livros")
-	private List<Livro> livros = new ArrayList<Livro>();
+	@NotBlank(message="Status do Peido é uma informação obrigatoria!")
+	private StatusPedido statusPedido;
 	
 	@ManyToOne
-	@JoinColumn(name="id-usuario")
+	@JoinColumn(name="usuario-id")
 	private Usuario usuario;
 	
-	@ManyToOne
-	@JoinColumn(name="id-frete")
-	private Frete frete;
+	@OneToMany(mappedBy = "pedidos")
+	private List<Livro> livro;
 
 	public Long getId() {
 		return id;
@@ -55,6 +55,14 @@ public class Pedido implements Serializable{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
 	public Date getData() {
@@ -73,12 +81,12 @@ public class Pedido implements Serializable{
 		this.valorTotal = valorTotal;
 	}
 
-	public List<Livro> getLivros() {
-		return livros;
+	public StatusPedido getStatusPedido() {
+		return statusPedido;
 	}
 
-	public void setLivros(List<Livro> livros) {
-		this.livros = livros;
+	public void setStatusPedido(StatusPedido statusPedido) {
+		this.statusPedido = statusPedido;
 	}
 
 	public Usuario getUsuario() {
@@ -89,15 +97,19 @@ public class Pedido implements Serializable{
 		this.usuario = usuario;
 	}
 
-	public Frete getFrete() {
-		return frete;
+	public List<Livro> getLivro() {
+		return livro;
 	}
 
-	public void setFrete(Frete frete) {
-		this.frete = frete;
+	public void setLivro(List<Livro> livro) {
+		this.livro = livro;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	
+	
+	
 }

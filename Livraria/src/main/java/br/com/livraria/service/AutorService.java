@@ -18,9 +18,13 @@ public class AutorService {
 		return repository.findAll();
 	}
 	
-	public void save(Autor autor) {
+	public void cadastrar(Autor autor) {
 		repository.saveAndFlush(autor);
 	}
+	
+	public Autor save(Autor autor) {
+        return repository.saveAndFlush(autor);
+    }
 	
 	public void update (Long id) {
 		// TODO Auto-generated method stub

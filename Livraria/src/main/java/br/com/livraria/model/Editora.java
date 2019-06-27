@@ -1,13 +1,13 @@
 package br.com.livraria.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -33,9 +33,8 @@ public class Editora implements Serializable{
 	@NotBlank(message="Cidade é uma informação obrigatoria!")
 	private String cidade;
 
-	@ManyToOne
-	@JoinColumn(name="id-livro")
-	private Livro livro;
+	@OneToMany(mappedBy="editoras")
+	private List<Livro> livro;
 
 	public Long getId() {
 		return id;
@@ -61,15 +60,17 @@ public class Editora implements Serializable{
 		this.cidade = cidade;
 	}
 
-	public Livro getLivro() {
+	public List<Livro> getLivro() {
 		return livro;
 	}
 
-	public void setLivro(Livro livro) {
+	public void setLivro(List<Livro> livro) {
 		this.livro = livro;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	
 }

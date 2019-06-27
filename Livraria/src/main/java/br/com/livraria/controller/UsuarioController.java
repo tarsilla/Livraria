@@ -36,7 +36,7 @@ public class UsuarioController {
 		if(result.hasErrors()) {
 			return addUsuario(usuario);
 		}
-		service.save(usuario);
+		//service.save(usuario);
 		ModelAndView rec = findAll();
 		return rec;
 	}
@@ -55,11 +55,11 @@ public class UsuarioController {
 		return view;
 	}
 	
-	@GetMapping("/update/{id}")
-	public ModelAndView updateUsuario(@PathVariable("id") Long id) {
-		Usuario usuario = service.findOne(id);
-		return addUsuario(usuario);
-	}
+	//@GetMapping("/update/{id}")
+	//public ModelAndView updateUsuario(@PathVariable("id") Long id) {
+		//Usuario usuario = service.findOne(id);
+		//return addUsuario(usuario);
+	//}
 	
 	@GetMapping("/delete/{id}")
 	public ModelAndView deleteUsuario(@PathVariable("id") Long id) {

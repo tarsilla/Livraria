@@ -18,8 +18,12 @@ public class LivroService {
 		return repository.findAll();
 	}
 	
-	public void save(Livro livro) {
-		repository.saveAndFlush(livro);
+	public Livro save(Livro livro) {
+		return repository.saveAndFlush(livro);
+	}
+	
+	public List<Livro> findByPedido(Long id) {
+		return repository.findByPedido(id);
 	}
 	
 	public void update (Long id) {
