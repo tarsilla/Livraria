@@ -15,6 +15,10 @@ public class PedidoService {
 	@Autowired
 	private PedidoRepository repository;
 	
+	public Pedido cadastrar(Pedido pedido) {
+		return repository.saveAndFlush(pedido);
+	}
+	
 	public List<Pedido> findAll(){
 		return repository.findAll();
 	}
@@ -27,8 +31,36 @@ public class PedidoService {
 		return repository.findByUsuario(usuario);
 	}
 	
+	public Double totalData(String compra){
+		Double valorTot = 0.0;
+		List<Pedido> pedido = repository.findByData(compra);
+		
+		for(Pedido p : pedido){
+			valorTot += p.getValorTotal();	
+		}
+		return valorTot;
+	}
+	
+	public Double totalEmail(String compra){
+		Double valorTot = 0.0;
+		List<Pedido> pedido = repository.findByEmail(compra);
+		
+		for(Pedido p : pedido){
+			valorTot += p.getValorTotal();	
+		}
+		return valorTot;
+	}
+	
 	public void update (Long id) {
 		// TODO Auto-generated method stub
+	}
+	
+	public List<Pedido> buscarPorData(String compra){
+		return repository.findByData(compra);
+	}
+	
+	public List<Pedido> buscarPorEmail(String compra){
+		return repository.findByEmail(compra);
 	}
 	
 	public void delete (Long id) {

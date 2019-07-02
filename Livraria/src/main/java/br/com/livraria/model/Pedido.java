@@ -41,6 +41,14 @@ public class Pedido implements Serializable{
 	@Column(name="valorTotal")
 	private double valorTotal;
 	
+	@NotBlank(message="Compra é uma informação obrigatoria!")
+	@Column(name="compra")
+	private String compra;
+	
+	private String nomeusuario;
+	
+	private String emailusuario;
+	
 	@NotBlank(message="Status do Peido é uma informação obrigatoria!")
 	private StatusPedido statusPedido;
 	
@@ -48,6 +56,30 @@ public class Pedido implements Serializable{
 	@JoinColumn(name="usuario-id")
 	private Usuario usuario;
 	
+	public String getCompra() {
+		return compra;
+	}
+
+	public void setCompra(String compra) {
+		this.compra = compra;
+	}
+
+	public String getNomeusuario() {
+		return nomeusuario;
+	}
+
+	public void setNomeusuario(String nomeusuario) {
+		this.nomeusuario = nomeusuario;
+	}
+
+	public String getEmailusuario() {
+		return emailusuario;
+	}
+
+	public void setEmailusuario(String emailusuario) {
+		this.emailusuario = emailusuario;
+	}
+
 	@OneToMany(mappedBy = "pedidos")
 	private List<Livro> livro;
 
